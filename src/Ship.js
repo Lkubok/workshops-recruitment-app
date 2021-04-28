@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -19,21 +18,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Main(props) {
   const classes = useStyles();
-  const [shipData, setShipData] = useState(null);
-
-  const { shipID } = props.match.params;
-
-  useEffect(() => {
-    axios
-      .get(`https://swapi.dev/api/starships/${shipID}`, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((response) => {
-        setShipData(response.data);
-      });
-  }, [shipID]);
-
-  const keys = useMemo(() => shipData && Object.keys(shipData), [shipData]);
 
   return (
     <TableContainer component={Paper}>
@@ -45,14 +29,12 @@ export default function Main(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {keys?.map((key) => (
-            <TableRow key={shipData[key]}>
-              <TableCell component="th" scope="row">
-                {key}
-              </TableCell>
-              <TableCell align="center">{shipData[key]}</TableCell>
-            </TableRow>
-          ))}
+          <TableRow key={"key"}>
+            <TableCell component="th" scope="row">
+              {"something to display"}
+            </TableCell>
+            <TableCell align="center">something to display</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>

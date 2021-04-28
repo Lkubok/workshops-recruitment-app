@@ -14,10 +14,19 @@ import { NavLink } from "react-router-dom";
 import Main from "./Main";
 import Ship from "./Ship";
 
-// TODO: task 1:
-// TODO: task 2:
-// TODO: task 3:
-// TODO: task 4:
+// TODO: task 0: Create link for going back to main page
+// TODO: task 1: Pass navigation param to screen, when navigating to Ship screen.
+// TODO: task 2: Catch navigation param in Ship screen and store it in component state
+// TODO: task 3: make request to https://swapi.dev/api to fetch data about certain space ship. You can use axios library or fetch API directly from JS.
+// TODO: task 4: store response from backend in component state and display stored data in component
+// TODO: task 5: Create redux store, for storing global state
+// TODO: task 6: store response from API request in redux
+// TODO: task 7: get data from store and display it instead data that is stored in component state, you can use hooks from react-redux library and reselect library
+// TODO: task 8: do the same but use ContextAPI. you can use hook implementation.
+// TODO: task 9: export component state to custom hook implementation.
+
+// Additional:
+// TODO: create not fount page
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -91,7 +100,7 @@ export default function DenseAppBar() {
               >
                 <div className={classes.menu}>
                   <NavLink
-                    to="/ship/2"
+                    to="/ship"
                     onClick={handleClose}
                     className={classes.navItem}
                     activeClassName={classes.navItemActive}
@@ -99,7 +108,7 @@ export default function DenseAppBar() {
                     Ship 2
                   </NavLink>
                   <NavLink
-                    to="/ship/3"
+                    to="/ship"
                     onClick={handleClose}
                     className={classes.navItem}
                     activeClassName={classes.navItemActive}
@@ -107,7 +116,7 @@ export default function DenseAppBar() {
                     Ship 3
                   </NavLink>
                   <NavLink
-                    to="/ship/5"
+                    to="/ship"
                     onClick={handleClose}
                     className={classes.navItem}
                     activeClassName={classes.navItemActive}
@@ -115,14 +124,13 @@ export default function DenseAppBar() {
                     Ship 5
                   </NavLink>
                   <NavLink
-                    to="/ship/9"
+                    to="/ship"
                     onClick={handleClose}
                     className={classes.navItem}
                     activeClassName={classes.navItemActive}
                   >
                     Ship 9
                   </NavLink>
-                  {/* TODO: create link for going back to main page */}
                 </div>
               </Menu>
             </IconButton>
@@ -134,8 +142,7 @@ export default function DenseAppBar() {
         <Container className={classes.container}>
           <Switch>
             <Route exact path={"/"} component={Main} />
-            <Route exact path={"/ship/:shipID"} component={Ship} />
-            {/* TODO: add not found page */}
+            <Route exact path={"/ship"} component={Ship} />
           </Switch>
         </Container>
       </div>
